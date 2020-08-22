@@ -52,7 +52,7 @@ export default function Orders() {
                             <TableCell>{row.id}</TableCell>
                             <TableCell>{row.client}</TableCell>
                             <TableCell>{row.url}</TableCell>
-                            <TableCell>{row.state}</TableCell>
+                            <TableCell>{row.state ? "Active" : "Inactive"}</TableCell>
                             <TableCell>{row.datetime}</TableCell>
                         </TableRow>
                     ))}
