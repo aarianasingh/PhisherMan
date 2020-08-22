@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.toolbar,
     },
     appBar: {
-        background: '#0D1726',
+        background: '#081C3D',
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
         }),
     },
     appBarShift: {
-        background: '#0D1726',
+        background: '#081C3D',
         marginLeft: drawerWidth,
         width: `calc(100% - ${drawerWidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
@@ -145,7 +145,7 @@ export default function Dashboard() {
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         PhisherMan
-          </Typography>
+                    </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={4} color="secondary">
                             <NotificationsIcon />
