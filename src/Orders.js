@@ -6,6 +6,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Button from '@material-ui/core/Button';
 import Title from './Title';
 
 // Generate Order Data
@@ -34,37 +35,39 @@ const useStyles = makeStyles((theme) => ({
 export default function Orders() {
     const classes = useStyles();
     return (
-        <React.Fragment>
+        <div>
             <Title>Incidents</Title>
-            <Table size="small">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Incident ID</TableCell>
-                        <TableCell>Client</TableCell>
-                        <TableCell>URL</TableCell>
-                        <TableCell>State</TableCell>
-                        <TableCell>Date and Time Created</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <TableRow key={row.id}>
-                            <TableCell>{row.id}</TableCell>
-                            <TableCell>{row.client}</TableCell>
-                            <TableCell>{row.url}</TableCell>
-                            <TableCell>{row.state ? "Active" : "Inactive"}</TableCell>
-                            <TableCell>{row.datetime}</TableCell>
+            <React.Fragment>
+                <Table size="small">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Incident ID</TableCell>
+                            <TableCell>Client</TableCell>
+                            <TableCell>URL</TableCell>
+                            <TableCell>State</TableCell>
+                            <TableCell>Date and Time Created</TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-            {/*
+                    </TableHead>
+                    <TableBody>
+                        {rows.map((row) => (
+                            <TableRow key={row.id}>
+                                <TableCell>{row.id}</TableCell>
+                                <TableCell>{row.client}</TableCell>
+                                <TableCell>{row.url}</TableCell>
+                                <TableCell>{row.state ? "Active" : "Inactive"}</TableCell>
+                                <TableCell>{row.datetime}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                {/*
             <div className={classes.seeMore}>
                 <Link color="primary" href="#" onClick={preventDefault}>
                     See more orders
         </Link>
             </div>
             */ }
-        </React.Fragment>
+            </React.Fragment>
+        </div>
     );
 }
