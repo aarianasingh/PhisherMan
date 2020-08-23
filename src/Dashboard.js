@@ -136,7 +136,7 @@ export default function Dashboard() {
             <CssBaseline />
             <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar className={classes.toolbar}>
-                    <img position="absolute" src={Logo} width={250} height={50} mode='contain'/>
+                    <img position="absolute" src={Logo} width={325} height={65} mode='contain'/>
                     {/* <IconButton
                         edge="start"
                         color="inherit"

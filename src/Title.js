@@ -5,7 +5,7 @@ import { Box } from '@material-ui/core';
 
 export default function Title(props) {
     return (
-        <Typography component="h2" align="left" variant="h2" color= "#081C3D" gutterBottom>
+        <Typography component="h2" align="left" variant="h4" color= "#081C3D" gutterBottom>
             {props.children}
         </Typography>
     );
