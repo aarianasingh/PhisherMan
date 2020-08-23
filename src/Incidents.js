@@ -53,17 +53,18 @@ export default function Incidents(props) {
         setIncident(newIncident);
     }
 
-    function storeVal(e) {
-        var element = document.getElementById("client-value").innerHTML = e.target.value;
+    function storeVal(e, e2) {
+        console.log(e2)
+        var element = document.getElementById(e2).innerHTML = e.target.value;
     }
 
     return (
         <TableRow key={props.id}>
             <TableCell id="incident_id">{props.id}</TableCell>
             <TableCell>
-                <Button id="client-value" onClick={handleClickOpen}>{incident.client}</Button>
+                <Button id={props.id} onClick={handleClickOpen}>{incident.client}</Button>
                 <div>
-                    <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <Dialog id="diaglog-client" open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                         <DialogTitle id="form-dialog-title">Change client</DialogTitle>
                         <DialogContent>
                             <TextField
@@ -72,7 +73,7 @@ export default function Incidents(props) {
                                 id="client"
                                 label="Client"
                                 fullWidth
-                                onChange={(e) => { storeVal(e) }}
+                                onChange={(e) => { storeVal(e, props.id) }}
                             />
                         </DialogContent>
                     </Dialog>
