@@ -14,6 +14,12 @@ import Incident from './Incidents';
 
 // Generate Order Data
 function createData(id, datetime, client, url, state, rowIndex) {
+    var xhr = new XMLHttpRequest()
+    xhr.addEventListener('load', () => {
+      console.log(xhr.responseText)
+    })
+    xhr.open('GET', 'localhost:8000/incidents/')
+    xhr.send()
     return { id, datetime, client, url, state, rowIndex };
 }
 
@@ -21,6 +27,7 @@ function changeData(i) {
     rows[i].state = !rows[i].state;
 }
 
+// mocked data
 var rows = [
     createData(0, '16 Mar, 2019', 'RBC', 'http://rBc/phish', 0, 0),
     createData(1, '16 Mar, 2019', 'RBC', 'http://rbC/phishing', 1, 1),
