@@ -8,18 +8,23 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 import Title from './Title';
+import Incident from './Incidents';
 
 // Generate Order Data
-function createData(id, datetime, client, url, state) {
-    return { id, datetime, client, url, state };
+function createData(id, datetime, client, url, state, rowIndex) {
+    return { id, datetime, client, url, state, rowIndex };
 }
 
-const rows = [
-    createData(0, '16 Mar, 2019', 'RBC', 'http://rBc/phish', 0),
-    createData(1, '16 Mar, 2019', 'RBC', 'http://rbC/phishing', 1),
-    createData(2, '16 Mar, 2019', 'BMO', 'http://bm0/phish', 0),
-    createData(3, '16 Mar, 2019', 'ScotiaBank', 'http://scot1abank/phish', 1),
-    createData(4, '15 Mar, 2019', 'RBC', 'http://RBCBank/phish', 1),
+function changeData(i) {
+    rows[i].state = !rows[i].state;
+}
+
+var rows = [
+    createData(0, '16 Mar, 2019', 'RBC', 'http://rBc/phish', 0, 0),
+    createData(1, '16 Mar, 2019', 'RBC', 'http://rbC/phishing', 1, 1),
+    createData(2, '16 Mar, 2019', 'BMO', 'http://bm0/phish', 0, 2),
+    createData(3, '16 Mar, 2019', 'ScotiaBank', 'http://scot1abank/phish', 1, 3),
+    createData(4, '15 Mar, 2019', 'RBC', 'http://RBCBank/phish', 1, 4),
 ];
 
 function preventDefault(event) {
@@ -32,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Orders() {
+export default function Orders(props) {
     const classes = useStyles();
     return (
         <div>
@@ -50,13 +55,8 @@ export default function Orders() {
                     </TableHead>
                     <TableBody>
                         {rows.map((row) => (
-                            <TableRow key={row.id}>
-                                <TableCell>{row.id}</TableCell>
-                                <TableCell>{row.client}</TableCell>
-                                <TableCell>{row.url}</TableCell>
-                                <TableCell>{row.state ? "Active" : "Inactive"}</TableCell>
-                                <TableCell>{row.datetime}</TableCell>
-                            </TableRow>
+                            <Incident id={row.id} client={row.client} state={row.state} datetime={row.datetime} url={row.url}>
+                            </Incident>
                         ))}
                     </TableBody>
                 </Table>
@@ -71,3 +71,13 @@ export default function Orders() {
         </div>
     );
 }
+
+/*
+<TableRow key={row.id}>
+                                <TableCell>{row.id}</TableCell>
+                                <TableCell><Button>{row.client}</Button></TableCell>
+                                <TableCell><Button>{row.url}</Button></TableCell>
+                                <TableCell><Button onClick={() => changeData(row.rowIndex)}>{row.state ? "Active" : "Inactive"}</Button></TableCell>
+                                <TableCell>{row.datetime}</TableCell>
+                            </TableRow>
+*/

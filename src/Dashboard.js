@@ -20,6 +20,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems /*, secondaryListItems*/ } from './listItems';
 import Orders from './Orders';
+import Dialog from './Dialog';
 
 
 function Copyright() {
@@ -127,6 +128,7 @@ export default function Dashboard() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
