@@ -88,33 +88,7 @@ export default function Incidents(props) {
                 </div>
 
             </TableCell>
-            <TableCell>
-                <Button onClick={handleClickOpen}>{incident.url}</Button>
-                <div>
-                    <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                        <DialogTitle id="form-dialog-title">Change URL</DialogTitle>
-                        <DialogContent>
-                            <TextField
-                                autoFocus
-                                margin="dense"
-                                id="url"
-                                label="URL"
-                                fullWidth
-                                onChange={(e) => { storeVal(e) }}
-                            />
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleClose} color="primary">
-                                Cancel
-              </Button>
-                            <Button onClick={handleClose} color="primary">
-                                Apply
-              </Button>
-                        </DialogActions>
-                    </Dialog>
-                </div>
-
-            </TableCell>
+            <TableCell><Button>{incident.url}</Button></TableCell>
             <TableCell><Button onClick={changeState}>{incident.state ? "Active" : "Inactive"}</Button></TableCell>
             <TableCell>{props.datetime}</TableCell>
         </TableRow>
