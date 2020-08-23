@@ -20,6 +20,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems /*, secondaryListItems*/ } from './listItems';
 import Orders from './Orders';
+import Logo from './logoCombined.png';
 
 
 function Copyright() {
@@ -35,7 +36,8 @@ function Copyright() {
     );
 }
 
-const drawerWidth = 240;
+// const drawerWidth = 240;
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -59,33 +61,33 @@ const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.leavingScreen,
         }),
     },
-    appBarShift: {
-        background: '#081C3D',
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    menuButton: {
-        marginRight: 36,
-    },
-    menuButtonHidden: {
-        display: 'none',
-    },
+    // appBarShift: {
+    //     background: '#081C3D',
+    //     marginLeft: drawerWidth,
+    //     width: `calc(100% - ${drawerWidth}px)`,
+    //     transition: theme.transitions.create(['width', 'margin'], {
+    //         easing: theme.transitions.easing.sharp,
+    //         duration: theme.transitions.duration.enteringScreen,
+    //     }),
+    // },
+    // menuButton: {
+    //     marginRight: 36,
+    // },
+    // menuButtonHidden: {
+    //     display: 'none',
+    // },
     title: {
         flexGrow: 1,
     },
-    drawerPaper: {
-        position: 'relative',
-        whiteSpace: 'nowrap',
-        width: drawerWidth,
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
+    // drawerPaper: {
+    //     position: 'relative',
+    //     whiteSpace: 'nowrap',
+    //     width: drawerWidth,
+    //     transition: theme.transitions.create('width', {
+    //         easing: theme.transitions.easing.sharp,
+    //         duration: theme.transitions.duration.enteringScreen,
+    //     }),
+    // },
     drawerPaperClose: {
         overflowX: 'hidden',
         transition: theme.transitions.create('width', {
@@ -113,9 +115,9 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'auto',
         flexDirection: 'column',
     },
-    fixedHeight: {
-        height: 240,
-    },
+    // fixedHeight: {
+    //     height: 240,
+    // },
 }));
 
 export default function Dashboard() {
@@ -127,14 +129,15 @@ export default function Dashboard() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar className={classes.toolbar}>
-                    <IconButton
+                    <img position="absolute" src={Logo} width={250} height={50} mode='contain'/>
+                    {/* <IconButton
                         edge="start"
                         color="inherit"
                         aria-label="open drawer"
@@ -145,12 +148,12 @@ export default function Dashboard() {
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         PhisherMan
-                    </Typography>
+          </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={4} color="secondary">
                             <NotificationsIcon />
                         </Badge>
-                    </IconButton>
+                    </IconButton> */}
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -181,7 +184,7 @@ export default function Dashboard() {
                             </Paper>
                         </Grid>
                     </Grid>
-                    <Box pt={4}>
+                    <Box pt={3}>
                         <Copyright />
                     </Box>
                 </Container>

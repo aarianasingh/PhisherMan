@@ -7,6 +7,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
+import { borders } from '@material-ui/system';
+import Box from '@material-ui/core/Box';
 
 // Generate Order Data
 function createData(id, datetime, client, url, state) {
@@ -26,9 +28,9 @@ function preventDefault(event) {
 }
 
 const useStyles = makeStyles((theme) => ({
-    seeMore: {
-        marginTop: theme.spacing(3),
-    },
+    // seeMore: {
+    //     marginTop: theme.spacing(3),
+    // },
 }));
 
 export default function Orders() {
@@ -36,7 +38,7 @@ export default function Orders() {
     return (
         <React.Fragment>
             <Title>Incidents</Title>
-            <Table size="small">
+            <Table size="small" borderRadius={20}>
                 <TableHead>
                     <TableRow>
                         <TableCell>Incident ID</TableCell>
