@@ -54,15 +54,14 @@ export default function Incidents(props) {
     }
 
     function storeVal(e) {
-        console.log(e.target.value);
-        console.log("hello");
+        var element = document.getElementById("client-value").innerHTML = e.target.value;
     }
 
     return (
         <TableRow key={props.id}>
-            <TableCell>{props.id}</TableCell>
+            <TableCell id="incident_id">{props.id}</TableCell>
             <TableCell>
-                <Button onClick={handleClickOpen}>{incident.client}</Button>
+                <Button id="client-value" onClick={handleClickOpen}>{incident.client}</Button>
                 <div>
                     <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                         <DialogTitle id="form-dialog-title">Change client</DialogTitle>
@@ -76,19 +75,11 @@ export default function Incidents(props) {
                                 onChange={(e) => { storeVal(e) }}
                             />
                         </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleClose} color="primary">
-                                Cancel
-              </Button>
-                            <Button onClick={handleClose} color="primary">
-                                Apply
-              </Button>
-                        </DialogActions>
                     </Dialog>
                 </div>
 
             </TableCell>
-            <TableCell><Button>{incident.url}</Button></TableCell>
+            <TableCell><Button id="client-url" >{incident.url}</Button></TableCell>
             <TableCell><Button onClick={changeState}>{incident.state ? "Active" : "Inactive"}</Button></TableCell>
             <TableCell>{props.datetime}</TableCell>
         </TableRow>
